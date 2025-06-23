@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900");
+:root{
+    --primary-color:rgb(9, 135, 246);
+    --background-gray:rgb(227, 227, 227);
+    --primary-dark:rgb(0, 56, 225);
+}
+
+*{
+    font-family: "Poppins",sans-serif;
+}
+
+i{
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+.left,.right{
+    display: flex;
+    flex-direction: column; 
+    padding: 20px ;
+    border-radius: 20px;
+    width: 40%;
+    margin: 10px;
+    background-color: white; 
+    box-shadow: 5px -10px 15px rgb(179, 179, 179),-5px 10px 10px rgb(121, 121, 121);
+    
+}
+
+
+.content{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-evenly;
+    
+    height: fit-content;
+    padding:40px 0;
+}
+.answer{
+    margin: 20px;
+}
+
+
+body{
+    margin: 0;
+    
+    color: white;
+}
+
+input{
+    padding: 15px 10px;
+    border-style: none;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color:white;
+    margin-bottom:20px ;
+}
+a{
+    padding:10px 10px;
+    
+    border-radius: 10px;
+    background-color: rgb(227, 227, 227) ;
+    color: white;
+}
+.process{
+    margin: 30px 0;
+}
+p{
+    color: var(--primary-color);
+}
+    
+.main-content{
+
+   background-position: center;
+    background-size: cover;
+    height: 100%;
+   
+    
+}
+#info{
+    margin: 50px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    
+    border-radius: 10px;
+}
+#info p{
+    color:var(--primary-color);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.water-round-container {
+    margin: 10px auto;
+    overflow: hidden;
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 8px solid var(--primary-dark);
+    text-align: center;
+    line-height: 50px;
+    animation: water-waves linear infinite;
+    background-color: white;
+    position: relative;
+  }
+  .water-wave1 {
+    position: absolute;
+    top: 40%;
+    left: -25%;
+    background: #33cfff;
+    opacity: 0.7;
+    width: 200%;
+    height: 200%;
+    border-radius: 40%;
+    animation: inherit;
+    animation-duration: 5s;
+  }
+
+  .water-wave2 {
+    position: absolute;
+    top: 45%;
+    left: -35%;
+    background: #0eaffe;;
+    opacity: 0.5;
+    width: 200%;
+    height: 200%;
+    border-radius: 35%;
+    animation: inherit;
+    animation-duration: 7s;
+  }
+
+  .water-wave3 {
+    position: absolute;
+    top: 50%;
+    left: -35%;
+    background: #0f7ae4;
+    opacity: 0.3;
+    width: 200%;
+    height: 200%;
+    border-radius: 33%;
+    animation: inherit;
+    animation-duration: 11s;
+  }
+
+  @keyframes water-waves {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .head{
+    
+    background-color: var(--primary-color);
+    text-align: center;
+   
+    left: 10px;
+
+   position: absolute;
+}
+h1{
+    padding-top: 40px;
+    color: var(--primary-color);
+}
+
+.chat-history{
+    width: 92%;
+    
+    box-shadow: 5px -10px 15px rgb(179, 179, 179),-5px 10px 10px rgb(121, 121, 121);
+    margin: 20px auto;
+    border-radius: 20px;
+}
+.chat-history-head{
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    
+    padding: 5px 0;
+    text-align: center;
+}
+#clear{
+    color:white;
+    padding: 15px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    border-style: none;
+
+}
+.q-answer,.question{
+    color: var(--primary-color);
+}
+.chats{
+    height: fit-content;
+    max-height: 600px;
+    overflow-y: scroll;
+}
+.chat{
+    margin: 20px 15px;
+    border-radius: 10px;
+    background-color: var(--background-gray);
+}
+.question{
+    background-color: var(--primary-dark);
+    padding: 10px;
+    margin: 10px 0;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.q-answer{
+    margin-left: 20px;
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+.info{
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.4em;
+
+}
+
+.question a{
+    vertical-align: center;
+    padding: 2px 12px;
+    border-radius: 50%;
+    background-color: white;
+}
+.delete-chat{
+    border-radius: 50%;
+    padding: 9px 15px 0 15px;
+    background-color: white;
+    border-style: none;
+    box-shadow: 4px 4px 2px black;
+}
+.delete-chat:hover{
+    box-shadow: none;
+
+    padding-top:10px;
+}
+.instruction{
+    font-size: 2em;
+    font-weight: bold;
+}

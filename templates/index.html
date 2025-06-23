@@ -1,0 +1,102 @@
+    {% extends 'base.html' %}
+    {%block head %}
+
+
+    {% endblock %}
+    {% block body %}
+
+    {% if error %}
+    <script>
+        alert("{{error}}");
+    </script>
+    {% elif error|length > 1 and error[1] %}
+    <script>
+        alert("{{error[1]}}");
+    </script>
+    {% endif %}
+    <div class="main-content">
+    <div class="head">
+    
+    </div>
+
+
+    <div class="water-round-container">
+    
+        <h1>PDF HELPER <i class="fa-regular fa-file-pdf "></i></h1>
+    <div class="water-wave1"></div>
+    <div class="water-wave2"></div>
+    <div class="water-wave3"></div>
+    </div>
+    <div class="info">
+        <h2>Upload your desired PDF and then ask any specific question from it</h2>
+    </div>
+    <div class="content">
+        
+        <div class="left">
+            <i class="fa-solid fa-file-import fa-3x"></i>
+            <form action="/" method="POST" enctype="multipart/form-data" onsubmit="{console.log('form1')}">
+                <p class="instruction one">1.Start by uploading your PDF</p>
+                
+                <input type="file" accept=".pdf" name="file" id="file"/>
+                <input  type="submit">
+                {% if response and response[0] %}
+                    <p>Uploaded file: {{response[0]}}</p>
+                {% elif error|length > 1 and error[0] and not error is string %}    
+                    <p>Uploaded file: {{error[0]}}</p>
+                {% elif file_name %}
+                      <p>Uploaded file: {{file_name.FILE_NAME}}</p>
+                {% endif %}
+                <script>
+                    console.log('{{error}}')
+                </script>
+            </form>
+            
+            
+            <form class="process" method="POST" action="/" onsubmit="{console.log('form2')}">
+                  <p class="instruction two">2.Process it </p>
+                 
+            <input type="submit" value="Process file" name="process" ></form>
+             {% if processed %}
+                    <p>File is processed</p>
+            {% endif %}
+        </div>
+        <div class="right">
+            <i class="fa-solid fa-clipboard-question fa-3x"></i>
+            <form method="POST" action="/">
+                  <p class="instruction three">3.Ask questions from your PDF</p>
+                <input type="text" value="Ask query" name="query" id="query"/>
+                <input type="submit"/>
+                <button id="clear" type="button">Clear</button>
+                <div class="answer">
+                    {% if response %}
+                    <p>
+                        {{response[1]}}
+                    </p>
+                
+                    {% endif %}
+                </div>
+                
+            </form>
+        
+        </div>
+    </div>
+    <div class="chat-history">
+        <div class="chat-history-head">
+            <h2>CHAT-HISTORY</h2>
+        </div>
+
+        <div class="chats" id="chats">
+            {% for i in chats %}
+            <div class="chat" id="{{i.id}}">
+                <div class="question">{{i.question}} <button class="delete-chat" data-id="{{i.id}}"><i class="fa-solid fa-minus remove "></i></button></div>
+              
+                <div class="q-answer">{{i.answer}}</div>
+            </div>
+            
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+
+
+    {% endblock %}
