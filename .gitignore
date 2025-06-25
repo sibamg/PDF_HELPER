@@ -1,42 +1,16 @@
-# Bytecode and caches
-__pycache__/
-*.py[cod]
 
-# Environments
 env/
 venv/
 myenv/
 *.env
-
-# Editors
-.vscode/
-.idea/
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Database and binary files
 *.db
 *.sqlite3
 *.pkl
 *.faiss
-
-# Uploads and sessions
 UPLOAD/
 flask_session/
 instance/
-
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-
-# Large files
 *.pdf
 *.log
-
-# Git Large File Storage related
 .gitattributes
 
-# Requirements lock
-Pipfile.lock
-poetry.lock

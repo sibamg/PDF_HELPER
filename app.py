@@ -46,6 +46,7 @@ def index():
     response=""
     if(request.method=='GET'): 
         chats=Chat.query.order_by(Chat.id).all() 
+      
         session["FILE_NAME"]=""
         session["FILE_UPLOAD_STATUS"]=False
         session["FILE_PROCESS_STATUS"]=False
@@ -102,7 +103,7 @@ def index():
                 query=request.form['query']
                 relevant_docs = retriever.get_relevant_documents(query)
                 context = "\n\n".join([doc.page_content for doc in relevant_docs])
-                prompt = f"Given:\n{context}\n\n Answer this Question(to the best of your ability with given context,keep in mind formatting as i will be displaying in html):\n{query}"
+                prompt = f"Given:\n{context}\n\n Answer this Question(to the best of your ability with given context,answer it in plain text no styling):\n{query}"
                 answer = model.generate_content(prompt,generation_config={"max_output_tokens": 300 })
                 response=[]
                 response.append(session.get("FILE_NAME"))
@@ -121,12 +122,13 @@ def index():
     else:
         chats=Chat.query.order_by(Chat.id).all()
         if(not session.get("FILE_UPLOAD_STATUS")):
-            
+           
             return render_template('index.html',error="No file uploaded",chats=chats,processed=session.get("FILE_PROCESS_STATUS"))
         elif(not session.get("FILE_PROCESS_STATUS")):
             error=[]
             error.append(session.get("FILE_NAME"))
             error.append("File Not Processed")
+            print("HELLO \n\n\n",session.get("FILE_PROCESS_STATUS"))
             return render_template('index.html',error=error,chats=chats,processed=session.get("FILE_PROCESS_STATUS"))
 @app.route('/delete/<int:id>',methods=['POST'])
 def del_chat(id):
@@ -139,4 +141,4 @@ def del_chat(id):
         return jsonify({'success':False})
 
 if __name__=="__main__":
-    app.run(debug=True)    app.run()
+    app.run(debug=True)

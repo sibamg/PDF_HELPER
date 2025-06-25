@@ -1,0 +1,16 @@
+myenv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.pkl
+*.pdf
+*.zip
+.env
+.DS_Store
+instance/
+flask_session/
+.vscode/
+.idea/
+*.ipynb

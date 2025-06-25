@@ -5,13 +5,14 @@
     {% endblock %}
     {% block body %}
 
-    {% if error %}
+    {% if error is string %}
     <script>
         alert("{{error}}");
     </script>
     {% elif error|length > 1 and error[1] %}
     <script>
         alert("{{error[1]}}");
+        
     </script>
     {% endif %}
     <div class="main-content">
@@ -39,6 +40,7 @@
                 
                 <input type="file" accept=".pdf" name="file" id="file"/>
                 <input  type="submit">
+         
                 {% if response and response[0] %}
                     <p>Uploaded file: {{response[0]}}</p>
                 {% elif error|length > 1 and error[0] and not error is string %}    
@@ -46,9 +48,7 @@
                 {% elif file_name %}
                       <p>Uploaded file: {{file_name.FILE_NAME}}</p>
                 {% endif %}
-                <script>
-                    console.log('{{error}}')
-                </script>
+                
             </form>
             
             
@@ -62,7 +62,7 @@
         </div>
         <div class="right">
             <i class="fa-solid fa-clipboard-question fa-3x"></i>
-            <form method="POST" action="/">
+            <form method="POST" action="/" autocomplete="off">
                   <p class="instruction three">3.Ask questions from your PDF</p>
                 <input type="text" value="Ask query" name="query" id="query"/>
                 <input type="submit"/>
